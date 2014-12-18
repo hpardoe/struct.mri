@@ -8,3 +8,6 @@ loads Freesurfer mgh files into R
 
 save.mgh.R 
 saves mgh files from R
+
+read.label.R
+read Freesurfer label files into R
