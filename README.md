@@ -11,3 +11,6 @@ saves mgh files from R
 
 read.label.R
 read Freesurfer label files into R
+
+vertex.wise.equivalence.R
+carry out vertex-wise equivalence testing analyses on Freesurfer-derived morphometric estimates. See https://sites.google.com/site/hpardoe/equivalence for instructions and https://peerj.com/preprints/808v1/ for a paper about it.
