@@ -14,3 +14,7 @@ read Freesurfer label files into R
 
 vertex.wise.equivalence.R
 carry out vertex-wise equivalence testing analyses on Freesurfer-derived morphometric estimates. See https://sites.google.com/site/hpardoe/equivalence for instructions and https://peerj.com/preprints/808v1/ for a paper about it.
+
+adni.xml.reader.R
+turn list of adni xml files into R data frame. Put xml files in directory called "xml" under your working directory, then in R:
+my.df <- xml.list.to.df(xml.file.list)
