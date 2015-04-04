@@ -1,10 +1,7 @@
-# This is just a basic version that pulls out information in a kind of crude way
+# This is just a basic version that pulls out limited information in a kind of crude way
 # Could be done better but hey whatever works
-# helpful article
-# http://www.informit.com/articles/article.aspx?p=2215520
 
 library("XML")
-xml.file <- "./xml/ADNI_130_S_4542_Resting_State_fMRI_S183948_I362399.xml"
 
 xml.file.list <- list.files("./xml/", pattern="xml$", full.names=T)
 
