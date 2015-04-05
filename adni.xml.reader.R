@@ -8,7 +8,7 @@ xml.file.list <- list.files("./xml/", pattern="xml$", full.names=T)
 xml.list.to.df <- function(input.list) {
 	output.df <- data.frame()
 	for (i in 1:length(input.list)) {
-		print(i)
+		#print(i)
 		output.df <- rbind(output.df, parse.adni.xml(xml.file.list[i]))
 	}
 	output.df
