@@ -18,3 +18,6 @@ carry out vertex-wise equivalence testing analyses on Freesurfer-derived morphom
 adni.xml.reader.R
 turn list of adni xml files into R data frame. Put xml files in directory called "xml" under your working directory, then in R:
 my.df <- xml.list.to.df(xml.file.list)
+
+hcp_scan_download.sh
+download scans for human connectome project. Replace "/home/hpardoe/Dropbox/human.connectome/s3cfg with location of your own s3cfg file"
