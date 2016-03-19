@@ -20,4 +20,4 @@ turn list of adni xml files into R data frame. Put xml files in directory called
 my.df <- xml.list.to.df(xml.file.list)
 
 hcp_scan_download.sh
-download scans for human connectome project. Replace "/home/hpardoe/Dropbox/human.connectome/s3cfg with location of your own s3cfg file"
+download scans for human connectome project. Replace "/home/hpardoe/Dropbox/human.connectome/s3cfg" with location of your own s3cfg file
