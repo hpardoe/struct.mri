@@ -28,9 +28,21 @@ else:
 # SUBJECTS_DIR not set - done
 # lh/rh.orig.nofix not found
 
+
 def extractEuler(myOrigNoFix):
 	subProcOut = subprocess.run(["mris_euler_number", myOrigNoFix], capture_output=True, text=True)
-	s = subProcOut.stdout.splitlines()[0]
+	# need to check if stdout or stderr captures the mris_euler_number output
+	if subProcOut.stdout:
+		#print("stdout")
+		first_line = subProcOut.stdout.split('\n')[0]
+		if "euler #" in first_line:
+			s = subProcOut.stdout.splitlines()[0]
+	else:
+		if subProcOut.stderr:
+			#print("stderr")
+			first_line = subProcOut.stderr.split('\n')[0]
+			if "euler #" in first_line:
+				s = subProcOut.stderr.splitlines()[0]
 	pattern = r'= (-?\d+) -->'
 	match = re.search(pattern, s)
 	return(int(match.group(1)))
@@ -52,9 +64,14 @@ with open(args.output_file, 'w') as output_file:
 	    for line in file:
 	        # Process each line as needed
 	        subject = line.strip()  # strip removes leading and trailing whitespaces
-	        myEuler = calcAvgEuler(subject,fsSubDir)
-	        print('subject',subject,'average euler = ',myEuler)
-	        output_file.write(f"{subject},{myEuler}\n")
+	        try:
+	        	myEuler = calcAvgEuler(subject,fsSubDir)
+	        except:
+	        	print("calcAveEuler failed, file probably missing")
+	        else:
+	        	myEuler = calcAvgEuler(subject,fsSubDir)
+	        	print('subject',subject,'average euler = ',myEuler)
+	        	output_file.write(f"{subject},{myEuler}\n")
 
 print(f"Results written to {args.output_file}")
 	        
